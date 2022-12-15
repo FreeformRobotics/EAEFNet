@@ -1,0 +1,21 @@
+Looking in links: https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
+Collecting mmcv
+  Downloading mmcv-1.7.0.tar.gz (593 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 593.6/593.6 kB 2.4 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: addict in /home/airs/anaconda3/envs/open-mmlab/lib/python3.8/site-packages (from mmcv) (2.4.0)
+Requirement already satisfied: numpy in /home/airs/anaconda3/envs/open-mmlab/lib/python3.8/site-packages (from mmcv) (1.23.3)
+Requirement already satisfied: packaging in /home/airs/anaconda3/envs/open-mmlab/lib/python3.8/site-packages (from mmcv) (21.3)
+Requirement already satisfied: Pillow in /home/airs/anaconda3/envs/open-mmlab/lib/python3.8/site-packages (from mmcv) (9.2.0)
+Requirement already satisfied: pyyaml in /home/airs/anaconda3/envs/open-mmlab/lib/python3.8/site-packages (from mmcv) (6.0)
+Requirement already satisfied: yapf in /home/airs/anaconda3/envs/open-mmlab/lib/python3.8/site-packages (from mmcv) (0.32.0)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /home/airs/anaconda3/envs/open-mmlab/lib/python3.8/site-packages (from packaging->mmcv) (3.0.9)
+Building wheels for collected packages: mmcv
+  Building wheel for mmcv (setup.py): started
+  Building wheel for mmcv (setup.py): finished with status 'done'
+  Created wheel for mmcv: filename=mmcv-1.7.0-py2.py3-none-any.whl size=914070 sha256=239e6082076730ee43530a2b72b08b1b42d0df52ce61a70002f50d6b3211357f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-233ohqtd/wheels/9b/89/2b/4dd481113713f57069c98473061037314d4f80a66077a3b5ec
+Successfully built mmcv
+Installing collected packages: mmcv
+Successfully installed mmcv-1.7.0
