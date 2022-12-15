@@ -69,19 +69,19 @@ RGBT-CC: https://drive.google.com/drive/folders/1eb0GwISb0AUULrDpUo8jBZC5Oh4zShg
 
 
 ## Test
-
+#### M3FD Detection
 ```
 python EAEF_mmyolo/tools/test.py yolov5/bi_yolov5 
 ```
-
+#### MFNet Segmentation
 ```
 python EAEF_MF/run_own_pth.py
 ```
-
+#### PST900 Segmentation
 ```
 python EAEF_PST/run_own_pth.py
 ```
-
+#### PST900 Crow-counting
 ```
 python EAEF_CC/test.py
 ```
