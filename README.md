@@ -1,11 +1,11 @@
 # EAEFNet
 
-![license](https://img.shields.io/badge/license-MIT-green) ![PyTorch-1.11.0](https://img.shields.io/badge/PyTorch-1.11.0-blue)
+![license](https://img.shields.io/badge/license-MIT-green) ![PyTorch-1.10.0](https://img.shields.io/badge/PyTorch-1.10.0-blue)
 
 
 ## Introduction
 
-The master branch works with **PyTorch 1.8+**.
+The master branch works with **PyTorch 1.10+**.
 
 ## Installation
 
@@ -81,9 +81,8 @@ python EAEF_MF/run_own_pth.py
 ```
 python EAEF_PST/run_own_pth.py
 ```
-#### PST900 Crow-counting
+#### RGBT-CC Crow-counting
 ```
 python EAEF_CC/test.py
 ```
 
-## Update
