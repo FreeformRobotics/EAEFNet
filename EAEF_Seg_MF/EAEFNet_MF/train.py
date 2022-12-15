@@ -226,7 +226,6 @@ def testing_t(epo, model, test_loader):
         for it, (images, labels, names) in enumerate(test_loader):
             images = Variable(images).cuda(args.gpu)
             labels = Variable(labels).cuda(args.gpu)
-            #BBS使用双输出
             logit,_ = model(images)
             label = labels.cpu().numpy().squeeze().flatten()
             prediction = logit.argmax(1).cpu().numpy().squeeze().flatten()  # prediction and label are both 1-d array, size: minibatch*640*480
