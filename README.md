@@ -22,8 +22,6 @@ pip install -r requirements.txt
 
 **Detection**
 
-The **Detection tasks** rely on the MMYOLO; if you want to test the model， follow the install steps or official [tour]().
-
 ```shell
 conda create -n EAEF python=3.8 pytorch==1.10.1 torchvision==0.11.2 cudatoolkit=11.3 -c pytorch -y
 conda activate EAEF
