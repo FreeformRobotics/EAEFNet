@@ -180,7 +180,6 @@ def testing_s(epo, model, test_loader):
             thermal = Variable(thermal).cuda(args.gpu)
             labels = Variable(labels).cuda(args.gpu)
             images = torch.cat([images, thermal], dim=1)
-            #BBS使用双输出
             _,logits = model(images)
             label = labels.cpu().numpy().squeeze().flatten()
             prediction = logits.argmax(1).cpu().numpy().squeeze().flatten()  # prediction and label are both 1-d array, size: minibatch*640*480
