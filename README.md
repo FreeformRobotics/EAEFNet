@@ -11,8 +11,6 @@ The master branch works with **PyTorch 1.10+**.
 
 **Crow-Counting**
 
-EAEFNet achieves RGBT-CC tasks based on the  RGBT-CC benchmark.
-
 ```shell
 conda create -n EAEF python=3.8 pytorch==1.10.1 torchvision==0.11.2 cudatoolkit=11.3 -c pytorch -y
 conda activate EAEF
@@ -55,7 +53,7 @@ M3FD Dataset: https://drive.google.com/drive/folders/1H-oO7bgRuVFYDcMGvxstT1nmy0
 
 RGBT-CC Dataset: https://www.dropbox.com/sh/o4ww2f5tv3nay9n/AAA4CfVMTZcdwsFxFlhwDsSba?dl=0
 
-###### Ps: You also can download it from [here](https://drive.google.com/drive/folders/1fqNwaumH0BrcAIvS0ebAjS35LX31Yw4S?usp=share_link)!
+###### Ps: You also can download them from [here](https://drive.google.com/drive/folders/1fqNwaumH0BrcAIvS0ebAjS35LX31Yw4S?usp=share_link)!
 
 ## Train-model Download 
 
@@ -85,4 +83,21 @@ python EAEF_PST/run_own_pth.py
 ```
 python EAEF_CC/test.py
 ```
+
+# results
+| Task         | Dataset | model   | mIoU   |
+| ------------ | ------- | ------- | ------ |
+| Segmentation | MFNet   | EAEFNet | 58.91% |
+| Segmentation | PSP900  | EAEFNet | 85.56% |
+
+| Task      | Dataset | model       | mAP@0.5 |
+| --------- | ------- | ----------- | ------- |
+| Detection | M3FD    | EAEF+Yolov5 | 80.4%   |
+
+| Task          | Dataset | model | RMSE   |
+| ------------- | ------- | ----- | ------ |
+| Crow-counting | RGBT-CC | EAEF  | 26.99% |
+
+
+
 
