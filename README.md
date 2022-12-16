@@ -5,6 +5,8 @@
 
 ## Introduction
 
+![a1018965db81629d43805608d569c0a](https://user-images.githubusercontent.com/45811724/208004358-395e5078-6f63-43f9-b6f5-426736c69b1a.png)
+
 EFEANet
 This is the official pytorch implementation of EAEFNet: Explicit Attention-Enhanced Fusion for RGB-Thermal Perception Tasks. Some of the codes are borrowed from [MFNet](https://github.com/haqishen/MFNet-pytorch) , [RTFNet](https://github.com/yuxiangsun/RTFNet) and [RGBT-CC](https://github.com/chen-judge/RGBTCrowdCounting). The master branch works with **PyTorch 1.10+**.
 
@@ -60,13 +62,19 @@ RGBT-CC Dataset: https://www.dropbox.com/sh/o4ww2f5tv3nay9n/AAA4CfVMTZcdwsFxFlhw
 
 ## Train-model Download 
 
-MFNet : https://drive.google.com/drive/folders/12ONwVaaO35VbW7rZ83P-pSVWp_bFiPhv?usp=share_link
 
-PST900 : https://drive.google.com/drive/folders/1Czm7vtmaW6fTCk4fBAfO2OAWoHrJry9Z?usp=share_link
+| Task         | Dataset | model   | mIoU   | Train Download                                               |
+| ------------ | ------- | ------- | ------ | ------------------------------------------------------------ |
+| Segmentation | MFNet   | EAEFNet | 58.91% | https://drive.google.com/drive/folders/12ONwVaaO35VbW7rZ83P-pSVWp_bFiPhv?usp=share_link |
+| Segmentation | PSP900  | EAEFNet | 85.56% | https://drive.google.com/drive/folders/1Czm7vtmaW6fTCk4fBAfO2OAWoHrJry9Z?usp=share_link |
 
-M3FD : https://drive.google.com/drive/folders/1JcvZUmTUB936H9JoYjYrM9H-jHKnjNzc?usp=share_link
+| Task      | Dataset | model       | mAP@0.5 | Train Download                                               |
+| --------- | ------- | ----------- | ------- | ------------------------------------------------------------ |
+| Detection | M3FD    | EAEF+Yolov5 | 80.4%   | https://drive.google.com/drive/folders/1JcvZUmTUB936H9JoYjYrM9H-jHKnjNzc?usp=share_link |
 
-RGBT-CC: https://drive.google.com/drive/folders/1eb0GwISb0AUULrDpUo8jBZC5Oh4zShgD?usp=share_link
+| Task          | Dataset | model | RMSE   | Train Download                                               |
+| ------------- | ------- | ----- | ------ | ------------------------------------------------------------ |
+| Crow-counting | RGBT-CC | EAEF  | 26.99% | https://drive.google.com/drive/folders/1eb0GwISb0AUULrDpUo8jBZC5Oh4zShgD?usp=share_link |
 
 
 ## Test
@@ -86,21 +94,6 @@ python EAEF_PST/run_own_pth.py
 ```
 python EAEF_CC/test.py
 ```
-
-# results
-| Task         | Dataset | model   | mIoU   |
-| ------------ | ------- | ------- | ------ |
-| Segmentation | MFNet   | EAEFNet | 58.91% |
-| Segmentation | PSP900  | EAEFNet | 85.56% |
-
-| Task      | Dataset | model       | mAP@0.5 |
-| --------- | ------- | ----------- | ------- |
-| Detection | M3FD    | EAEF+Yolov5 | 80.4%   |
-
-| Task          | Dataset | model | RMSE   |
-| ------------- | ------- | ----- | ------ |
-| Crow-counting | RGBT-CC | EAEF  | 26.99% |
-
 
 
 
