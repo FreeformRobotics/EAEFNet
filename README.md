@@ -56,19 +56,19 @@ RGBT-CC Dataset: https://www.dropbox.com/sh/o4ww2f5tv3nay9n/AAA4CfVMTZcdwsFxFlhw
 
 ###### Ps: You also can download them from [here](https://drive.google.com/drive/folders/1fqNwaumH0BrcAIvS0ebAjS35LX31Yw4S?usp=share_link)!
 
-## Train Download 
+## Trained Model Download
 
 
-| Task         | Dataset | model   | mIoU   | Train Download                                               |
+| Task         | Dataset | model   | mIoU   | Trained Model                                               |
 | ------------ | ------- | ------- | ------ | ------------------------------------------------------------ |
 | Segmentation | MFNet   | EAEFNet | 58.91% | https://drive.google.com/drive/folders/12ONwVaaO35VbW7rZ83P-pSVWp_bFiPhv?usp=share_link |
 | Segmentation | PSP900  | EAEFNet | 85.56% | https://drive.google.com/drive/folders/1Czm7vtmaW6fTCk4fBAfO2OAWoHrJry9Z?usp=share_link |
 
-| Task      | Dataset | model       | mAP@0.5 | Train Download                                               |
+| Task      | Dataset | model       | mAP@0.5 | Trained Model                                               |
 | --------- | ------- | ----------- | ------- | ------------------------------------------------------------ |
 | Detection | M3FD    | EAEF+Yolov5 | 80.4%   | https://drive.google.com/drive/folders/1JcvZUmTUB936H9JoYjYrM9H-jHKnjNzc?usp=share_link |
 
-| Task          | Dataset | model | RMSE   | Train Download                                               |
+| Task          | Dataset | model | RMSE   | Trained Model                                               |
 | ------------- | ------- | ----- | ------ | ------------------------------------------------------------ |
 | Crowcount    | RGBTCC | EAEF  | 26.99% | https://drive.google.com/drive/folders/1eb0GwISb0AUULrDpUo8jBZC5Oh4zShgD?usp=share_link |
 
