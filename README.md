@@ -45,7 +45,7 @@ cd EAEFNet_RGBT_MF
 pip install -r requirements.txt
 ```
 
-## Data prepare
+## Data Downnload
 ![1671154999406](https://user-images.githubusercontent.com/45811724/208002737-71390486-a4c7-4f6f-b225-c259acb4e41c.png)
 
 
