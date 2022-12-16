@@ -5,7 +5,6 @@
 
 ## Introduction
 
-![a1018965db81629d43805608d569c0a](https://user-images.githubusercontent.com/45811724/208004358-395e5078-6f63-43f9-b6f5-426736c69b1a.png)
 
 EFEANet
 This is the official pytorch implementation of EAEFNet: Explicit Attention-Enhanced Fusion for RGB-Thermal Perception Tasks. Some of the codes are borrowed from [MFNet](https://github.com/haqishen/MFNet-pytorch) , [RTFNet](https://github.com/yuxiangsun/RTFNet) and [RGBT-CC](https://github.com/chen-judge/RGBTCrowdCounting). The master branch works with **PyTorch 1.10+**.
@@ -60,7 +59,7 @@ RGBT-CC Dataset: https://www.dropbox.com/sh/o4ww2f5tv3nay9n/AAA4CfVMTZcdwsFxFlhw
 
 ###### Ps: You also can download them from [here](https://drive.google.com/drive/folders/1fqNwaumH0BrcAIvS0ebAjS35LX31Yw4S?usp=share_link)!
 
-## Train-model Download 
+## Trained model Download 
 
 
 | Task         | Dataset | model   | mIoU   | Train Download                                               |
