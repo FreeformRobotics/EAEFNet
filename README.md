@@ -42,7 +42,7 @@ cd EAEFNet_RGBT_MF
 pip install -r requirements.txt
 ```
 
-## Data Downnload
+## Data Download 
 ![1671154999406](https://user-images.githubusercontent.com/45811724/208002737-71390486-a4c7-4f6f-b225-c259acb4e41c.png)
 
 
@@ -56,7 +56,7 @@ RGBT-CC Dataset: https://www.dropbox.com/sh/o4ww2f5tv3nay9n/AAA4CfVMTZcdwsFxFlhw
 
 ###### Ps: You also can download them from [here](https://drive.google.com/drive/folders/1fqNwaumH0BrcAIvS0ebAjS35LX31Yw4S?usp=share_link)!
 
-## Trained model Download 
+## Train Download 
 
 
 | Task         | Dataset | model   | mIoU   | Train Download                                               |
