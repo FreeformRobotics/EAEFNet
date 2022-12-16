@@ -6,7 +6,7 @@
 ## Introduction
 
 EFEANet
-The master branch works with **PyTorch 1.10+**.
+This is the official pytorch implementation of EAEFNet: Explicit Attention-Enhanced Fusion for RGB-Thermal Perception Tasks. Some of the codes are borrowed from [MFNet](https://github.com/haqishen/MFNet-pytorch) , [RTFNet](https://github.com/yuxiangsun/RTFNet) and [RGBT-CC](https://github.com/chen-judge/RGBTCrowdCounting). The master branch works with **PyTorch 1.10+**.
 
 ## Installation
 
