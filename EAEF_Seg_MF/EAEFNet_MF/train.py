@@ -15,14 +15,14 @@ from pytorch_toolbelt import losses as L
 import torch.nn.functional as F
 from loss_hub.losses import DiceLoss,SoftCrossEntropyLoss,CrossEntropyLoss
 from torch.cuda.amp import autocast,GradScaler
-from model.FATNet import FAENet_p_p,EAENet
+from model.FATNet import EAEFNet
 #############################################################################################
 parser = argparse.ArgumentParser(description='Train with pytorch')
 #############################################################################################
 parser.add_argument('--model_name', '-m', type=str, default='EAEFNet50_hight_iou_2')
-parser.add_argument('--batch_size', '-b', type=int, default=6)
+parser.add_argument('--batch_size', '-b', type=int, default=3)
 parser.add_argument('--seed', default=3407, type=int,help='seed for initializing training.')
-parser.add_argument('--lr_start', '-ls', type=float, default=0.075)
+parser.add_argument('--lr_start', '-ls', type=float, default=0.02)
 parser.add_argument('--gpu', '-g', type=int, default=0)
 #############################################################################################
 parser.add_argument('--lr_decay', '-ld', type=float, default=0.95)
@@ -272,7 +272,7 @@ if __name__ == '__main__':
     print("\nthe pytorch version:", torch.__version__)
     print("the gpu count:", torch.cuda.device_count())
     print("the current used gpu:", torch.cuda.current_device(), '\n')
-    model = EAENet.FATNet_pp(args.n_class)
+    model = EAEFNet.EAEFNet(args.n_class)
     pretrained_weight = torch.load("D:/FEANet_coding/runs/FATNet_cvpr_C/42.pth", map_location=lambda storage, loc: storage.cuda(args.gpu))
     own_state = model.state_dict()
 
