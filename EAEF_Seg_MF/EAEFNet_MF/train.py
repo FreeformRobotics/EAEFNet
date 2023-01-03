@@ -273,15 +273,6 @@ if __name__ == '__main__':
     print("the gpu count:", torch.cuda.device_count())
     print("the current used gpu:", torch.cuda.current_device(), '\n')
     model = EAEFNet.EAEFNet(args.n_class)
-    pretrained_weight = torch.load("D:/FEANet_coding/runs/FATNet_cvpr_C/42.pth", map_location=lambda storage, loc: storage.cuda(args.gpu))
-    own_state = model.state_dict()
-
-    for name, param in pretrained_weight.items():
-        if name not in own_state:
-            continue
-        own_state[name].copy_(param)
-    print('done!')
-
 
     if args.gpu >= 0: model.cuda(args.gpu)
     optimizer = torch.optim.SGD(model.parameters(), lr=args.lr_start, momentum=0.9, weight_decay=0.0005)
