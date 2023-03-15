@@ -70,7 +70,7 @@ RGBT-CC Dataset: https://www.dropbox.com/sh/o4ww2f5tv3nay9n/AAA4CfVMTZcdwsFxFlhw
 
 | Task          | Dataset | model | RMSE   | Trained Model                                               |
 | ------------- | ------- | ----- | ------ | ------------------------------------------------------------ |
-| Crowcount    | RGBTCC | EAEF  | 26.99% | https://drive.google.com/drive/folders/1eb0GwISb0AUULrDpUo8jBZC5Oh4zShgD?usp=share_link |
+| Crowcount    | RGBTCC | EAEF  | 21.85% | https://drive.google.com/drive/folders/1eb0GwISb0AUULrDpUo8jBZC5Oh4zShgD?usp=share_link |
 
 
 ## Test
