@@ -10,32 +10,38 @@ class Feature_Pool(nn.Module):
         self.down = nn.Linear(dim, dim * ratio)
         self.act = nn.GELU()
         self.up = nn.Linear(dim * ratio, dim)
+
     def forward(self, x):
         b, c, _, _ = x.size()
-        y = self.up(self.act(self.down(self.gap_pool(x).permute(0,2,3,1)))).permute(0,3,1,2).view(b,c)
+        y = self.up(self.act(self.down(self.gap_pool(x).permute(0, 2, 3, 1)))).permute(0, 3, 1, 2).view(b, c)
         return y
+
 
 class Channel_Attention(nn.Module):
     def __init__(self, dim, ratio=16):
         super(Channel_Attention, self).__init__()
         self.gmp_pool = nn.AdaptiveMaxPool2d(1)
-        self.down = nn.Linear(dim, dim//ratio)
+        self.down = nn.Linear(dim, dim // ratio)
         self.act = nn.GELU()
-        self.up = nn.Linear(dim//ratio, dim)
+        self.up = nn.Linear(dim // ratio, dim)
+
     def forward(self, x):
-        max_out = self.up(self.act(self.down(self.gmp_pool(x).permute(0,2,3,1)))).permute(0,3,1,2)
+        max_out = self.up(self.act(self.down(self.gmp_pool(x).permute(0, 2, 3, 1)))).permute(0, 3, 1, 2)
         return max_out
+
 
 class Spatial_Attention(nn.Module):
     def __init__(self, dim):
         super(Spatial_Attention, self).__init__()
-        self.conv1 = nn.Conv2d(dim, 1, kernel_size=1,bias=True)
+        self.conv1 = nn.Conv2d(dim, 1, kernel_size=1, bias=True)
+
     def forward(self, x):
         x1 = self.conv1(x)
         return x1
 
+
 class FusionModel(nn.Module):
-    def __init__(self, ratio=0.6):
+    def __init__(self, ratio=1):
         super(FusionModel, self).__init__()
         c1 = int(64 * ratio)
         c2 = int(128 * ratio)
@@ -61,11 +67,11 @@ class FusionModel(nn.Module):
         RGB = RGBT[0]
         T = RGBT[1]
 
-        RGB, T, shared = self.block1(RGB, T, None)
-        RGB, T, shared = self.block2(RGB, T, shared)
-        RGB, T, shared = self.block3(RGB, T, shared)
-        RGB, T, shared = self.block4(RGB, T, shared)
-        _, _, shared = self.block5(RGB, T, shared)
+        RGB, T, shared = self.block1(RGB, T)
+        RGB, T, shared = self.block2(RGB, T)
+        RGB, T, shared = self.block3(RGB, T)
+        RGB, T, shared = self.block4(RGB, T)
+        _, _, shared = self.block5(RGB, T)
         x = shared
 
         x = F.upsample_bilinear(x, scale_factor=2)
@@ -89,38 +95,25 @@ class Block(nn.Module):
     def __init__(self, cfg, in_channels, first_block=False, dilation_rate=1):
         super(Block, self).__init__()
         self.seen = 0
-        self.first_block = first_block
         self.d_rate = dilation_rate
-
         self.rgb_conv = make_layers(cfg, in_channels=in_channels, d_rate=self.d_rate)
         self.t_conv = make_layers(cfg, in_channels=in_channels, d_rate=self.d_rate)
-        if first_block is False:
-            self.shared_conv = make_layers(cfg, in_channels=in_channels, d_rate=self.d_rate)
 
         channels = cfg[0]
-        self.rgb_msc = MSC(channels)
-        self.t_msc = MSC(channels)
-        if first_block is False:
-            self.shared_fuse_msc = MSC(channels)
-        self.shared_distribute_msc = MSC(channels)
         # Bouble-bench MLP setting
         self.mlp_pool = Feature_Pool(channels)
-        self.dwconv = nn.Conv2d(channels*2, channels*2, kernel_size=7,padding=3,groups=channels)
-        self.cse = Channel_Attention(channels*2)
+        self.dwconv = nn.Conv2d(channels * 2, channels * 2, kernel_size=7, padding=3, groups=channels)
+        self.cse = Channel_Attention(channels * 2)
         self.sse_r = Spatial_Attention(channels)
         self.sse_t = Spatial_Attention(channels)
 
-    def forward(self, RGB, T, shared):
+    def forward(self, RGB, T):
         RGB = self.rgb_conv(RGB)
         T = self.t_conv(T)
-        if self.first_block:
-            shared = torch.zeros(RGB.shape).cuda()
-        else:
-            shared = self.shared_conv(shared)
-        new_RGB, new_T, new_shared = self.fuse(RGB, T, shared)
+        new_RGB, new_T, new_shared = self.fuse(RGB, T)
         return new_RGB, new_T, new_shared
 
-    def fuse(self, RGB, T, shared):
+    def fuse(self, RGB, T):
         b, c, h, w = RGB.size()
         rgb_y = self.mlp_pool(RGB)
         t_y = self.mlp_pool(T)
@@ -154,27 +147,6 @@ class Block(nn.Module):
         new_share = new_T + new_RGB
         ##########################################################################
         return new_RGB, new_T, new_share
-
-
-class MSC(nn.Module):
-    def __init__(self, channels):
-        super(MSC, self).__init__()
-        self.channels = channels
-        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
-        self.pool2 = nn.MaxPool2d(kernel_size=4, stride=4)
-
-        self.conv = nn.Sequential(
-            nn.Conv2d(3*channels, channels, kernel_size=1),
-            nn.ReLU(inplace=True)
-        )
-
-    def forward(self, x):
-        x1 = nn.functional.interpolate(self.pool1(x), x.shape[2:])
-        x2 = nn.functional.interpolate(self.pool2(x), x.shape[2:])
-        concat = torch.cat([x, x1, x2], 1)
-        fusion = self.conv(concat)
-        return fusion
-
 
 def fusion_model():
     model = FusionModel()
