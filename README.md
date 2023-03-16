@@ -13,7 +13,7 @@ This is the official pytorch implementation of EAEFNet: Explicit Attention-Enhan
 ```shell
 conda create -n EAEF python=3.8 pytorch==1.10.1 torchvision==0.11.2 cudatoolkit=11.3 -c pytorch -y
 conda activate EAEF
-cd EAEFNet_RGBT_CC
+cd EAEFNet_RGBT-CC
 pip install -r requirements.txt
 ```
 
