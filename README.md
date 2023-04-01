@@ -84,7 +84,7 @@ RGBT-CC Dataset: https://www.dropbox.com/sh/o4ww2f5tv3nay9n/AAA4CfVMTZcdwsFxFlhw
 
 |Task          | Dataset | model | MAE   | Trained Model                                               |
 | ------------- | ------- | ----- | ------ | ------------------------------------------------------------ |
-| SOD    | VT5000 | EAEF  | 0.0031 | |
+| SOD    | VT5000 | EAEF  | 0.0031 |https://drive.google.com/file/d/1mIcCKumip27fcSFnbvGIsycUvUTrYk36/view?usp=share_link |
 
 
 
