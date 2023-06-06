@@ -54,7 +54,8 @@ pip install -r requirements.txt
 
 ## Data Download 
 
-![v2-3cffaefedfb0b360c6861c9bae7bab3e_1440w](https://github.com/FreeformRobotics/EAEFNet/assets/45811724/36578fe1-468c-4f84-9fd3-ca2283367bc9)
+<img width="1483" alt="b992b3bc62cb98ca8a87364468bdb32" src="https://github.com/FreeformRobotics/EAEFNet/assets/45811724/43c1960d-a529-432d-ad8b-00e08b0312c9">
+
 
 
 MFTNet Dataset: http://gofile.me/4jm56/CfukComo1
