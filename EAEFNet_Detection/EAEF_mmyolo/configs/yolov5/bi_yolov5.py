@@ -165,9 +165,9 @@ train_dataloader = dict(
                            'flip', 'flip_direction'))
         ],
         metainfo=dict(
-            CLASSES=('Car', 'Truck', 'People', 'Bus', 'Lamp', 'Motorcycle'),
-            PALETTE=[(220, 20, 60), (255, 0, 255), (0, 255, 255), (0, 0, 255),
-                     (183, 43, 42), (123, 23, 32)])),
+            classes=('Car', 'Truck', 'People', 'Bus', 'Lamp', 'Motorcycle'),
+            palette=[(220, 20, 60), (255, 0, 255), (0, 255, 255), (0, 0, 255),
+                     (183, 43, 42), (123, 23, 32)])))
     collate_fn=dict(type='yolov5_collate'))
 
 val_dataloader = dict(
@@ -204,8 +204,8 @@ val_dataloader = dict(
             size_divisor=32,
             extra_pad_ratio=0.5),
         metainfo=dict(
-            CLASSES=('Car', 'Truck', 'People', 'Bus', 'Lamp', 'Motorcycle'),
-            PALETTE=[(220, 20, 60), (255, 0, 255), (0, 255, 255), (0, 0, 255),
+            classes=('Car', 'Truck', 'People', 'Bus', 'Lamp', 'Motorcycle'),
+            palette=[(220, 20, 60), (255, 0, 255), (0, 255, 255), (0, 0, 255),
                      (183, 43, 42), (123, 23, 32)])))
 
 test_dataloader = val_dataloader
@@ -245,10 +245,10 @@ test_evaluator = dict(
 train_cfg = dict(type='EpochBasedTrainLoop', max_epochs=400, val_interval=10)
 val_cfg = dict(type='ValLoop')
 test_cfg = dict(type='TestLoop')
-metainfo = dict(
-    CLASSES=('Car', 'Truck', 'People', 'Bus', 'Lamp', 'Motorcycle'),
-    PALETTE=[(220, 20, 60), (255, 0, 255), (0, 255, 255), (0, 0, 255),
-             (183, 43, 42), (123, 23, 32)])
+metainfo=dict(
+        classes=('Car', 'Truck', 'People', 'Bus', 'Lamp', 'Motorcycle'),
+        palette=[(220, 20, 60), (255, 0, 255), (0, 255, 255), (0, 0, 255),
+                     (183, 43, 42), (123, 23, 32)])
 
 vis_backends = [dict(type='LocalVisBackend')]
 visualizer = dict(
