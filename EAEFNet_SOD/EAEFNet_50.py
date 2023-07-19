@@ -23,12 +23,12 @@ class Atttion_avg_pool(nn.Module):
         return x * y.expand_as(x)
 
 class Feature_Pool(nn.Module):
-    def __init__(self, dim, ratio=4):
+    def __init__(self, dim, ratio=2):
         super(Feature_Pool, self).__init__()
         self.gap_pool = nn.AdaptiveAvgPool2d(1)
-        self.down = nn.Linear(dim, dim // ratio)
+        self.down = nn.Linear(dim, dim * ratio)
         self.act = nn.GELU()
-        self.up = nn.Linear(dim // ratio, dim)
+        self.up = nn.Linear(dim * ratio, dim)
     def forward(self, x):
         b, c, _, _ = x.size()
         y = self.up(self.act(self.down(self.gap_pool(x).permute(0,2,3,1)))).permute(0,3,1,2).view(b,c)
