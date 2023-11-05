@@ -15,7 +15,7 @@ from pytorch_toolbelt import losses as L
 import torch.nn.functional as F
 from loss_hub.losses import DiceLoss,SoftCrossEntropyLoss,CrossEntropyLoss
 from torch.cuda.amp import autocast,GradScaler
-from model.FATNet import EAEFNet
+from model.EAEFNet import EAEFNet
 #############################################################################################
 parser = argparse.ArgumentParser(description='Train with pytorch')
 #############################################################################################
